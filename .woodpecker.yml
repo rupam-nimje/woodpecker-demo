@@ -1,6 +1,6 @@
 steps:
   docker-build:
-    image: docker:20.10
+    image: docker:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
