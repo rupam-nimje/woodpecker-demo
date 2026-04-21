@@ -4,4 +4,4 @@ steps:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker build -t woodpecker-demo .
+      - docker build -t woodpecker-demo . 
