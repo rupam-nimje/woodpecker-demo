@@ -1,7 +1,0 @@
-
-# .woodpecker.yml
-pipeline:
-  test:
-    image: alpine
-    commands:
-      - echo "Pipeline working 🚀"
