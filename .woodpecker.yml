@@ -4,4 +4,16 @@ steps:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - docker build -t woodpecker-demo . 
+      - echo "Building Docker image..."
+      - docker build -t woodpecker-demo .
+
+    when:
+      branch: main
+      path:
+        include:
+          - src/**
+          - dockerfile
+          - requirements.txt
+        exclude:
+          - README.md
+          - .woodpecker.yml 
