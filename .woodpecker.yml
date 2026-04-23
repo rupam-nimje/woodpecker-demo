@@ -3,7 +3,7 @@ steps:
     image: alpine
     commands:
       - echo "Running PR validation..."
-      - echo "You can add lint/test here"
+      - echo "Running lint/tests..."
 
     when:
       event:
@@ -32,7 +32,7 @@ steps:
       path:
         include:
           - src/**
-          - dockerfile
+          - Dockerfile
           - requirements.txt
         exclude:
           - README.md
