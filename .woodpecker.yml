@@ -32,7 +32,7 @@ steps:
       path:
         include:
           - src/**
-          - Dockerfile
+          - dockerfile
           - requirements.txt
         exclude:
           - README.md
