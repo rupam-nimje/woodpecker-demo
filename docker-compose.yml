@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  woodpecker-server:
+    image: woodpeckerci/woodpecker-server:v3
+    ports:
+      - "8000:8000"
+    volumes:
+      - woodpecker-server-data:/var/lib/woodpecker
+    environment:
+      - WOODPECKER_OPEN=true
+      - WOODPECKER_HOST=https://stegosaur-tartar-hassle.ngrok-free.dev
+      - WOODPECKER_GITHUB=true
+      - WOODPECKER_GITHUB_CLIENT=Ov23lit3fqw3nLF0wKAH
+      - WOODPECKER_GITHUB_SECRET=31aaba98d3bcc08c69e5c241c0c4cc2398b0d477
+      - WOODPECKER_AGENT_SECRET=supersecret
+      - WOODPECKER_ADMIN=rupam-nimje
+      - WOODPECKER_REPO_TRUSTED=rupam-nimje/woodpecker-demo
+    restart: always
+
+  woodpecker-agent:
+    image: woodpeckerci/woodpecker-agent:v3
+    depends_on:
+      - woodpecker-server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WOODPECKER_SERVER=woodpecker-server:9000
+      - WOODPECKER_AGENT_SECRET=supersecret
+    restart: always
+
+volumes:
+  woodpecker-server-data:
