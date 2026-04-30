@@ -1,0 +1,10 @@
+# .woodpecker/deploy.yaml
+steps:
+  - name: deploy
+    image: alpine
+    commands:
+      - echo "Deploying application..."
+
+depends_on:
+  - test
+  - lint

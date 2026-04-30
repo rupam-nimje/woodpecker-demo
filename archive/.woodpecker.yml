@@ -1,0 +1,39 @@
+steps:
+  pr-check:
+    image: alpine
+    commands:
+      - echo "Running PR validation..."
+      - echo "Running lint/tests..."
+
+    when:
+      event:
+        - pull_request
+      path:
+        include:
+          - src/**
+          - Dockerfile
+          - requirements.txt
+        exclude:
+          - README.md
+          - .woodpecker.yml
+
+  docker-build:
+    image: docker:24
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - echo "Building Docker image..."
+      - docker build -t woodpecker-demo:${CI_COMMIT_SHA} .
+
+    when:
+      event:
+        - push
+      branch: main
+      path:
+        include:
+          - src/**
+          - Dockerfile
+          - requirements.txt
+        exclude:
+          - README.md
+          - .woodpecker.yml
