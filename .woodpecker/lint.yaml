@@ -4,8 +4,8 @@ steps:
     image: node:18
     commands:
       - echo "Running lint..."
-      //- npm install
-      //- npm run lint
+      # - npm install
+      # - npm run lint
 
 depends_on:
   - build
