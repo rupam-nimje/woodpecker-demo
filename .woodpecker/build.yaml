@@ -4,5 +4,5 @@ steps:
     image: node:18
     commands:
       - echo "Building application..."
-      //- npm install
-      //- npm run build
+      # - npm install
+      # - npm run build
