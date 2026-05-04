@@ -1,11 +1,11 @@
 # .woodpecker/lint.yaml
-steps:
-  - name: lint
-    image: node:18
-    commands:
-      - echo "Running lint..."
-      # - npm install
-      # - npm run lint
+#steps:
+#  - name: lint
+#    image: node:18
+#    commands:
+#      - echo "Running lint..."
+#      # - npm install
+#      # - npm run lint
 
-depends_on:
-  - build
+#depends_on:
+#  - build
